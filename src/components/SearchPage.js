@@ -46,8 +46,8 @@ class SearchPage extends Component {
                 for (book of this.state.searchResults) {
 
                     if (book.id === shelfBook.id) {
-                        book.shelf = shelfBook.shelf;
-                        continue
+                        book.shelf = shelfBook.shelf
+                        break
                     }
                 }
             }
