@@ -63,7 +63,7 @@ class ListBooks extends React.Component {
                 </div>
                 <div className="open-search">
                     <Link
-                        to="/search"
+                        to={`/search`}
                         onClick={ () => this.props.refresh(this.props.shelfBooks)}>
                         Add a Book
                     </Link>

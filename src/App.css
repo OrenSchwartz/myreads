@@ -11,7 +11,7 @@ body, .app {
 /* main page */
 
 .list-books-title {
-  padding: 10px 0;
+  padding: 10px 0px;
   background: #2e7c31;
   text-align: center;
 }
@@ -22,7 +22,7 @@ body, .app {
 }
 
 .list-books-content {
-  padding: 0 0 80px;
+  padding: 0 110px 80px 110px;
   flex: 1;
 }
 
@@ -39,6 +39,7 @@ body, .app {
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
 }
+
 .bookshelf-books {
   text-align: center;
 }
