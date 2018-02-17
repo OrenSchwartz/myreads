@@ -18,9 +18,11 @@ class ListBooks extends React.Component {
 
     render() {
 
-        let currentlyReading = this.props.shelfBooks.filter((book) => book.shelf === 'currentlyReading')
-        let wantToRead = this.props.shelfBooks.filter((book) => book.shelf === 'wantToRead')
-        let read = this.props.shelfBooks.filter((book) => book.shelf === 'read')
+        const { shelfBooks, updateShelfApp, refresh } = this.props
+
+        let currentlyReading = shelfBooks.filter((book) => book.shelf === 'currentlyReading')
+        let wantToRead = shelfBooks.filter((book) => book.shelf === 'wantToRead')
+        let read = shelfBooks.filter((book) => book.shelf === 'read')
 
         return (
 
@@ -36,7 +38,7 @@ class ListBooks extends React.Component {
 
                                 <BooksGrid
                                     books={currentlyReading}
-                                    onHandleChange={this.props.updateShelfApp}
+                                    onHandleChange={updateShelfApp}
                                 />
 
                             </div>
@@ -46,7 +48,7 @@ class ListBooks extends React.Component {
                             <div className="bookshelf-books">
                                 <BooksGrid
                                     books={wantToRead}
-                                    onHandleChange={this.props.updateShelfApp}
+                                    onHandleChange={updateShelfApp}
                                 />
                             </div>
                         </div>
@@ -55,7 +57,7 @@ class ListBooks extends React.Component {
                             <div className="bookshelf-books">
                                 <BooksGrid
                                     books={read}
-                                    onHandleChange={this.props.updateShelfApp}
+                                    onHandleChange={updateShelfApp}
                                 />
                             </div>
                         </div>
@@ -64,7 +66,7 @@ class ListBooks extends React.Component {
                 <div className="open-search">
                     <Link
                         to={`/search`}
-                        onClick={ () => this.props.refresh(this.props.shelfBooks)}>
+                        onClick={ () => refresh(shelfBooks)}>
                         Add a Book
                     </Link>
                 </div>

@@ -31,19 +31,20 @@ class SearchPage extends Component {
 
 
     render() {
-
+        const { searchResults } = this.state
+        const { shelfBooks, updateShelfApp, refresh } = this.props 
         let shelfBook, book;
 
-        if (this.state.searchResults.length > 0) {
+        if (searchResults.length > 0) {
 
             //set all shelves to 'none'
-            for (book of this.state.searchResults) {
+            for (book of searchResults) {
                 book.shelf = 'none';
             }
 
             //set the matching shelves
-            for (shelfBook of this.props.shelfBooks) {
-                for (book of this.state.searchResults) {
+            for (shelfBook of shelfBooks) {
+                for (book of searchResults) {
 
                     if (book.id === shelfBook.id) {
                         book.shelf = shelfBook.shelf
@@ -59,7 +60,7 @@ class SearchPage extends Component {
                 <div className="search-books-bar">
                     <Link
                         to="/"
-                        onClick={ () => this.props.refresh(this.props.shelfBooks)}
+                        onClick={ () => refresh(shelfBooks)}
                         className="close-search">
                         Close
                     </Link>
@@ -77,8 +78,8 @@ class SearchPage extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         <BooksGrid
-                            books={this.state.searchResults}
-                            onHandleChange={this.props.updateShelfApp}
+                            books={searchResults}
+                            onHandleChange={updateShelfApp}
                         />
                     </ol>
                 </div>

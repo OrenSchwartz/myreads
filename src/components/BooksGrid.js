@@ -6,14 +6,15 @@ class BooksGrid extends Component {
 
     render() {
 
-        if (this.props.books.length > 0) {
-            this.props.books.sort(sortBy('title'));
+        const { books, onHandleChange } = this.props 
+        if (books.length > 0) {
+            books.sort(sortBy('title'));
 
             return (
 
                 <ol className="books-grid">
 
-                    {this.props.books.map((book) => (
+                    {books.map((book) => (
 
                         <li key={book.id}>
                             <div className="book">
@@ -23,7 +24,7 @@ class BooksGrid extends Component {
                                     }}></div>
                                     <div className="book-shelf-changer">
                                         <select defaultValue={book.shelf}
-                                                onChange={(event) => this.props.onHandleChange(event, book)}>
+                                                onChange={(event) => onHandleChange(event, book)}>
                                             <option value="none" disabled>Move to...</option>
                                             <option value="currentlyReading">Currently Reading</option>
                                             <option value="wantToRead">Want to Read</option>
