@@ -18,9 +18,9 @@ class ListBooks extends React.Component {
 
     render() {
 
-        let currentlyReading = this.props.shelfBooks.filter((book) => book.shelf === 'currentlyReading')
-        let wantToRead = this.props.shelfBooks.filter((book) => book.shelf === 'wantToRead')
-        let read = this.props.shelfBooks.filter((book) => book.shelf === 'read')
+        const currentlyReading = this.props.shelfBooks.filter((book) => book.shelf === 'currentlyReading')
+        const wantToRead = this.props.shelfBooks.filter((book) => book.shelf === 'wantToRead')
+        const read = this.props.shelfBooks.filter((book) => book.shelf === 'read')
 
         return (
 

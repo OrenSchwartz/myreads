@@ -32,18 +32,16 @@ class SearchPage extends Component {
 
     render() {
 
-        let shelfBook, book;
-
         if (this.state.searchResults.length > 0) {
 
             //set all shelves to 'none'
-            for (book of this.state.searchResults) {
+            for (const book of this.state.searchResults) {
                 book.shelf = 'none';
             }
 
             //set the matching shelves
-            for (shelfBook of this.props.shelfBooks) {
-                for (book of this.state.searchResults) {
+            for (const shelfBook of this.props.shelfBooks) {
+                for (const book of this.state.searchResults) {
 
                     if (book.id === shelfBook.id) {
                         book.shelf = shelfBook.shelf
